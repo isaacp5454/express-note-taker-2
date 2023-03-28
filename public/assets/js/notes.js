@@ -4,7 +4,7 @@ const { v4: uuidv4 } = require('uuid');
 const { readAndAppend, readFromFile } = require('../../../helpers/fsUtils.js');
 
 notes.get('/', (req, res) =>
-  readFromFile('./Develop/db/db.json').then((data) => res.json(JSON.parse(data)))
+  readFromFile('./db/db.json').then((data) => res.json(JSON.parse(data)))
 );
 
 notes.post('/', (req, res) => {
@@ -18,7 +18,7 @@ notes.post('/', (req, res) => {
           "id": uuidv4(),
         };
     
-        readAndAppend(newNote, './Develop/db/db.json');
+        readAndAppend(newNote, './db/db.json');
     
         const response = {
           status: 'success',
